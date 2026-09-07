@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Hiniso Premium Dry Cabinet</title>
+<meta name="description" content="Hiniso premium dry cabinets — Japan technology since 2011. On-site service, original parts, and safety-standard compliance through authorized distributors.">
+<meta property="og:title" content="Hiniso Premium Dry Cabinet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
+<style>
+  body { margin: 0; background: oklch(0.14 0.01 260); font-family: "DM Sans", ui-sans-serif, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: oklch(0.83 0.165 92); }
+  @keyframes hiniso-pulse { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+  @keyframes pop-in { from { opacity: 0; transform: translateY(-4px) scale(0.97) } to { opacity: 1; transform: none } }
+  @keyframes panel-in { from { opacity: 0; transform: translateY(-8px) } to { opacity: 1; transform: none } }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: none } }
+  @keyframes ken-burns { from { transform: scale(1) } to { transform: scale(1.1) } }
+  [data-hero-img] { animation: ken-burns 13s cubic-bezier(0.23, 1, 0.32, 1) forwards; transform-origin: 65% 50%; will-change: transform; backface-visibility: hidden; }
+  @media (max-width: 767px) { [data-hero-img] { transform-origin: 50% 100%; animation-duration: 15s; } }
+  @media (prefers-reduced-motion: reduce) { [data-hero-img] { animation: none; } }
+  html[data-no-motion] [data-hero-img] { animation: none !important; }
+  [data-menu] { animation: panel-in 220ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  [data-pop] { animation: pop-in 160ms cubic-bezier(0.23, 1, 0.32, 1) both; transform-origin: top left; }
+  [data-rise] { animation: rise-in 460ms cubic-bezier(0.23, 1, 0.32, 1) both; animation-delay: var(--d, 0ms); }
+  [data-reveal] { opacity: 0; transform: translateY(48px); transition: opacity 1900ms cubic-bezier(0.215, 0.610, 0.355, 1), transform 1900ms cubic-bezier(0.215, 0.610, 0.355, 1); will-change: opacity, transform; }
+  [data-reveal].is-in { opacity: 1; transform: none; will-change: auto; }
+  html[data-no-motion] [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+  }
+  [data-chev] { transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
+  [data-chev-open] { transform: rotate(180deg); }
+  [data-tab] { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
+  [data-header] { transition: box-shadow 220ms cubic-bezier(0.23, 1, 0.32, 1), background-color 220ms ease; }
+  [data-header].is-stuck { box-shadow: 0 12px 32px -18px rgba(0,0,0,0.9); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-chev], [data-header] { transition: none; }
+  }
+  [data-press] { transition: background-color 160ms ease, color 160ms ease, transform 120ms cubic-bezier(0.23, 1, 0.32, 1); }
+  [data-press]:active { transform: scale(0.98); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-menu], [data-pop], [data-rise] { animation-duration: 140ms; animation-timing-function: ease; animation-name: fade-only; }
+    [data-press]:active { transform: none; }
+    @keyframes fade-only { from { opacity: 0 } to { opacity: 1 } }
+  }
+  @media (max-width: 767px) {
+    [data-desktop-nav] { display: none !important; }
+    [data-pad] { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-mobile-toggle] { display: inline-flex !important; }
+    [data-mobile-nav] { display: block !important; }
+  }
+  @media (max-width: 767px) {
+    [data-hero-scrim] { background: linear-gradient(180deg, oklch(0.14 0.01 260 / 0.7) 0%, oklch(0.14 0.01 260 / 0.45) 48%, oklch(0.14 0.01 260 / 0.15) 100%), rgba(0, 0, 0, 0.18) !important; }
+    [data-hero-img] { object-position: 50% 100% !important; }
+  }
+  [data-lucide] { display: inline-block; }
+</style>
+</helmet>
+<div style="background: oklch(0.14 0.01 260); color: #fff; min-height: 100%;">
+
+  <header data-header="" style="position: sticky; top: 0; z-index: 40; border-bottom: 1px solid rgba(255,255,255,0.1); background: #000;">
+    <div data-pad="" style="margin: 0 auto; display: flex; width: 100%; box-sizing: border-box; height: 64px; max-width: 1152px; align-items: center; justify-content: space-between; padding: 0 24px; gap: 16px;">
+      <button type="button" onClick="{{ goHome }}" style="display: flex; align-items: center; background: none; border: 0; padding: 0; cursor: pointer;"><img src="assets/hiniso-logo.png" alt="Hiniso" style="height: 22px; width: auto; display: block;"></button>
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" data-mobile-toggle="" style="display: none; align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -10px; background: none; border: 0; cursor: pointer; color: #fff;">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </sc-if>
+        <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </sc-if>
+      </button>
+      <nav data-desktop-nav="" style="display: flex; align-items: center; gap: 28px; font-size: 14px;">
+        <button type="button" onClick="{{ goAbout }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: {{ aboutColor }};" style-hover="color: oklch(0.83 0.165 92)">About</button>
+        <div style="position: relative;" onMouseEnter="{{ openDownloads }}" onMouseLeave="{{ closeDownloads }}">
+          <button type="button" style="display: inline-flex; align-items: center; gap: 4px; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: #fff;" style-hover="color: oklch(0.83 0.165 92)">
+            Downloads
+            <span data-chev="" data-chev-open="{{ chevOpen }}" style="display: inline-flex; width: 16px; height: 16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <sc-if value="{{ downloadsOpen }}" hint-placeholder-val="{{ false }}">
+            <div data-pop="" style="position: absolute; left: 0; top: 100%; margin-top: 8px; min-width: 160px; border: 1px solid rgba(255,255,255,0.1); background: #000; border-radius: 2px; box-shadow: 0 24px 60px -20px rgba(0,0,0,0.8); padding: 4px; display: flex; flex-direction: column;">
+              <a href="https://www.hiniso.com.sg/s/HINISO-Models-Product-Catalogue-New.pdf" target="_blank" rel="noopener noreferrer" style="padding: 8px 12px; font-size: 14px; color: #fff; border-radius: 2px;" style-hover="background: rgba(255,255,255,0.1); color: oklch(0.83 0.165 92)">Catalogue</a>
+              <a href="https://www.hiniso.com.sg/s/EN-HINISO.pdf" target="_blank" rel="noopener noreferrer" style="padding: 8px 12px; font-size: 14px; color: #fff; border-radius: 2px;" style-hover="background: rgba(255,255,255,0.1); color: oklch(0.83 0.165 92)">User Guide</a>
+            </div>
+          </sc-if>
+        </div>
+        <button type="button" onClick="{{ goRetailers }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: {{ retailersColor }};" style-hover="color: oklch(0.83 0.165 92)">Retailers</button>
+        <button type="button" onClick="{{ goContact }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: #fff;" style-hover="color: oklch(0.83 0.165 92)">Contact</button>
+      </nav>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div data-mobile-nav="" data-menu="" style="display: none; border-top: 1px solid rgba(255,255,255,0.1); background: #000; padding: 8px 24px 24px;">
+        <nav style="display: flex; flex-direction: column;">
+          <button type="button" onClick="{{ goHome }}" style="display: flex; align-items: center; min-height: 52px; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0; font-family: inherit; font-size: 16px; font-weight: 500; letter-spacing: 0.02em; text-align: left; cursor: pointer; color: #fff;" style-hover="color: oklch(0.83 0.165 92)">Home</button>
+          <button type="button" onClick="{{ goAbout }}" style="display: flex; align-items: center; min-height: 52px; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0; font-family: inherit; font-size: 16px; font-weight: 500; letter-spacing: 0.02em; text-align: left; cursor: pointer; color: {{ aboutColor }};" style-hover="color: oklch(0.83 0.165 92)">About</button>
+          <button type="button" onClick="{{ goRetailers }}" style="display: flex; align-items: center; min-height: 52px; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0; font-family: inherit; font-size: 16px; font-weight: 500; letter-spacing: 0.02em; text-align: left; cursor: pointer; color: {{ retailersColor }};" style-hover="color: oklch(0.83 0.165 92)">Retailers</button>
+          <p style="margin: 20px 0 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Downloads</p>
+          <a href="https://www.hiniso.com.sg/s/HINISO-Models-Product-Catalogue-New.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 48px; font-size: 15px; color: rgba(255,255,255,0.75);" style-hover="color: oklch(0.83 0.165 92)">Catalogue</a>
+          <a href="https://www.hiniso.com.sg/s/EN-HINISO.pdf" target="_blank" rel="noopener noreferrer" onClick="{{ closeMenu }}" style="display: flex; align-items: center; min-height: 48px; font-size: 15px; color: rgba(255,255,255,0.75);" style-hover="color: oklch(0.83 0.165 92)">User Guide</a>
+          <button type="button" onClick="{{ goContact }}" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 20px; height: 52px; border: 0; border-radius: 2px; background: oklch(0.83 0.165 92); font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; color: oklch(0.16 0.015 260);" style-hover="background: oklch(0.68 0.14 85); color: #fff">Contact us</button>
+        </nav>
+      </div>
+    </sc-if>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <section style="position: relative; display: flex; min-height: 640px; align-items: center; overflow: hidden; background: oklch(0.14 0.01 260);">
+    <picture>
+      <source media="(max-width: 767px)" srcset="assets/hero-mobile.png">
+      <img data-hero-img="" src="assets/hero-desktop.png" alt="Hiniso dry cabinets" style="position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; object-position: 100% 50%;">
+    </picture>
+    <div data-hero-scrim="" style="position: absolute; inset: 0; background: linear-gradient(90deg, oklch(0.14 0.01 260 / 0.75) 0%, oklch(0.14 0.01 260 / 0.6) 45%, oklch(0.14 0.01 260 / 0.28) 72%, oklch(0.14 0.01 260 / 0.05) 92%), rgba(0, 0, 0, 0.18);"></div>
+    <div data-pad="" style="position: relative; margin: 0 auto; width: 100%; box-sizing: border-box; max-width: 1152px; padding: 96px 24px">
+      <div style="max-width: 672px;">
+        <p data-rise="" style="--d: 0ms; display: inline-flex; align-items: center; gap: 10px; border-radius: 2px; border: 1px solid oklch(0.83 0.165 92 / 0.4); background: oklch(0.83 0.165 92 / 0.1); padding: 6px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: oklch(0.83 0.165 92); backdrop-filter: blur(4px); margin: 0;">
+          <span style="width: 6px; height: 6px; border-radius: 999px; background: oklch(0.83 0.165 92); animation: 2s ease-in-out 0s infinite normal none running hiniso-pulse;"></span>
+          Japan technology since 2011</p>
+        <h1 data-rise="" style="--d: 70ms; margin: 32px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(40px, 6vw, 72px); line-height: 0.95; font-weight: 700; letter-spacing: -0.02em; color: #fff">
+          Premium dry cabinets. <span style="color: oklch(0.83 0.165 92);"><br>Quality and trusted performance.</span>
+        </h1>
+        <p data-rise="" style="--d: 140ms; margin: 28px 0 0; max-width: 576px; font-size: 19px; line-height: 1.65; font-weight: 400; color: #fff; text-shadow: 0 1px 12px oklch(0.14 0.01 260 / 0.9);">
+          DryBox Official distributors provide on-site service, original parts, and safety-standard compliance.
+        </p>
+        <div data-rise="" style="--d: 210ms; margin-top: 40px; display: flex; flex-wrap: wrap; gap: 16px;">
+          <button type="button" onClick="{{ shopSingapore }}" style="border: 0; cursor: pointer; font-family: inherit; display: inline-flex; height: 52px; align-items: center; border-radius: 2px; background: oklch(0.83 0.165 92); padding: 0 36px; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.16 0.015 260); " data-press="" style-hover="background: oklch(0.68 0.14 85); color: #fff">Shop Singapore</button>
+          <button type="button" onClick="{{ shopMalaysia }}" style="border: 0; cursor: pointer; font-family: inherit; display: inline-flex; height: 52px; align-items: center; border-radius: 2px; background: oklch(0.83 0.165 92); padding: 0 36px; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.16 0.015 260); " data-press="" style-hover="background: oklch(0.68 0.14 85); color: #fff">Shop Malaysia</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: oklch(0.14 0.01 260); color: #fff;">
+    <div data-pad="" style="margin: 0 auto; width: 100%; box-sizing: border-box; max-width: 1152px; padding: 96px 24px;">
+      <div style="display: grid; grid-template-columns: {{ featureCols }}; gap: 20px; align-items: stretch;">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+          <div data-reveal="" style="display: flex; flex-direction: column; border-radius: 4px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); padding: 36px 32px; transition: background-color .25s ease, border-color .25s ease, transform .25s cubic-bezier(0.23, 1, 0.32, 1), box-shadow .25s ease;" style-hover="background: rgba(255,255,255,0.06); border-color: oklch(0.83 0.165 92 / 0.45); transform: translateY(-4px); box-shadow: 0 24px 48px -32px rgba(0,0,0,0.9)">
+            <i data-lucide="{{ f.icon }}" style="width: 36px; height: 36px; color: oklch(0.83 0.165 92); stroke-width: 1.5;"></i>
+            <p style="margin: 32px 0 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5);">{{ f.kicker }}</p>
+            <h2 style="margin: 12px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: #fff;">{{ f.title }}</h2>
+            <p style="margin: 12px 0 0; font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.7);">{{ f.detail }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: oklch(0.14 0.01 260);">
+    <div data-pad="" style="margin: 0 auto; display: grid; width: 100%; max-width: 1152px; box-sizing: border-box; grid-template-columns: {{ distCols }}; align-items: center; gap: 48px; padding: 80px 24px">
+      <div data-reveal="">
+        <p style="margin: 0; font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: oklch(0.83 0.165 92);">Verification</p>
+        <h2 style="margin: 12px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; color: #fff;">Authorized<br>distributors</h2>
+      </div>
+      <div data-reveal="" style="min-width: 0; width: 100%; box-sizing: border-box; border-radius: 2px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); padding: 32px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+          <sc-for list="{{ guarantees }}" as="g" hint-placeholder-count="3">
+            <span style="display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.15); padding: 8px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.8);">
+              <i data-lucide="shield-check" style="width: 14px; height: 14px; color: oklch(0.83 0.165 92);"></i>
+              {{ g }}
+            </span>
+          </sc-for>
+        </div>
+        <div style="margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;">
+          <p style="margin: 0; max-width: 448px; font-size: 14px; line-height: 1.65; font-weight: 300; color: rgba(255,255,255,0.6);">
+            Hiniso products are only covered under warranty when purchased through our verified network of specialist retailers.
+          </p>
+          <button type="button" onClick="{{ goRetailers }}" style="display: inline-flex; flex-shrink: 0; align-items: center; gap: 8px; background: none; border: 0; border-bottom: 2px solid oklch(0.83 0.165 92); padding: 0 0 4px; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #fff;" style-hover="color: oklch(0.83 0.165 92)">
+            Find a retailer
+            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background: oklch(0.14 0.01 260); padding: 96px 0;">
+    <div data-pad="" style="margin: 0 auto; width: 100%; box-sizing: border-box; max-width: 1152px; padding: 0 24px; text-align: center">
+      <div data-pad="" data-reveal="" style="width: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.4); padding: 64px 32px">
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3.5vw, 36px); font-weight: 700; letter-spacing: -0.02em; color: #fff;">Want to become a distributor?</h2>
+        <p style="margin: 12px 0 0; font-size: 18px; color: rgba(255,255,255,0.7);">Email us and we will get in touch with you</p>
+        <form style="margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px;" onSubmit="{{ submit }}">
+          <input name="email" type="email" required="" placeholder="Enter your email" style="height: 52px; width: 100%; max-width: 448px; box-sizing: border-box; border-radius: 2px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); padding: 0 20px; font: inherit; font-size: 15px; color: #fff; outline: none;" style-focus="border-color: oklch(0.83 0.165 92)">
+          <button type="submit" style="display: inline-flex; height: 52px; align-items: center; border: 0; border-radius: 2px; background: oklch(0.83 0.165 92); padding: 0 32px; font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.16 0.015 260); cursor: pointer; " data-press="" style-hover="background: oklch(0.68 0.14 85); color: #fff">Get in touch</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <div style="background: oklch(0.985 0.004 106); color: oklch(0.195 0.012 258);">
+    <section style="border-top: 1px solid oklch(0.9 0.008 252);">
+      <div data-pad="" style="margin: 0 auto; display: grid; box-sizing: border-box; max-width: 1152px; grid-template-columns: {{ aboutCols }}; align-items: center; gap: 40px; padding: 64px 24px">
+        <div data-reveal="">
+          <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Premium dry cabinets</h2>
+          <p style="margin: 16px 0 0; font-size: 16px; line-height: 1.7; color: oklch(0.505 0.014 256);">30 million annually and founded since 2011 to provide premium dry cabinets and dry boxes. All models come with digital hygrometers, built modular for easy parts replacement. 5-year warranty on electronic parts through authorised distributors.</p>
+        </div>
+        <img src="assets/hiniso-product_01.jpg" alt="Compact Hiniso dry box with digital humidity display" loading="lazy" style="width: 100%; border-radius: 6px; border: 1px solid oklch(0.9 0.008 252); background: #fff; object-fit: cover; display: block;">
+      </div>
+    </section>
+    <section style="border-top: 1px solid oklch(0.9 0.008 252); background: oklch(0.968 0.005 250);">
+      <div data-pad="" style="margin: 0 auto; display: flex; flex-direction: column; width: 100%; box-sizing: border-box; max-width: 1152px; gap: 40px; padding: 64px 24px;">
+        <div data-reveal="" style="text-align: center;">
+          <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Function meets style</h2>
+          <p style="margin: 16px auto 0; max-width: 621px; font-size: 16px; line-height: 1.7; color: oklch(0.505 0.014 256);">
+            Functional and versatile, every Hiniso dry cabinet is sized to fit a range of collections and spaces.
+          </p>
+        </div>
+        <img data-reveal="" src="assets/hiniso-product_02.jpg" alt="Two Hiniso dry cabinets, one storing camera bodies and lenses, one storing violins" loading="lazy" style="display: block; width: 100%; border-radius: 6px; border: 1px solid oklch(0.9 0.008 252); background: #fff; object-fit: cover;">
+      </div>
+    </section>
+    <section style="border-top: 1px solid oklch(0.9 0.008 252);">
+      <div data-pad="" style="margin: 0 auto; box-sizing: border-box; max-width: 1152px; padding: 64px 24px; text-align: center">
+        <h2 data-reveal="" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Company</h2>
+        <p style="margin: 16px auto 0; max-width: 768px; font-size: 16px; line-height: 1.7; color: oklch(0.505 0.014 256);">
+          Manufactured in Zhuhai, China, with dedicated R&amp;D, design, production, and sales teams and corporate offices in Singapore. Over 50 staff, worldwide revenue above USD 1,000,000 annually.
+        </p>
+      </div>
+    </section>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isRetailers }}" hint-placeholder-val="{{ false }}">
+  <div style="background: oklch(0.985 0.004 106); color: oklch(0.195 0.012 258);">
+    <div data-pad="" style="margin: 0 auto; box-sizing: border-box; max-width: 1152px; padding: 56px 24px;">
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 4vw, 36px); font-weight: 700; letter-spacing: -0.02em;">Authorized retailers</h1>
+      <p style="margin: 8px 0 0; font-size: 16px; color: oklch(0.505 0.014 256);">Find a distributor with local warranty and safety mark approved stock</p>
+
+      <div style="margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px;">
+        <sc-for list="{{ countryTabs }}" as="c" hint-placeholder-count="4">
+          <button type="button" onClick="{{ c.onClick }}" data-tab="" style="height: 40px; border-radius: 6px; padding: 0 20px; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid {{ c.border }}; background: {{ c.bg }}; color: {{ c.color }}; transition: background-color .15s, color .15s;">{{ c.label }}</button>
+        </sc-for>
+      </div>
+
+      <sc-for list="{{ groups }}" as="group" hint-placeholder-count="1">
+        <div style="margin-top: 32px;">
+          <sc-if value="{{ group.label }}" hint-placeholder-val="{{ false }}">
+            <h2 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.505 0.014 256);">{{ group.label }}</h2>
+          </sc-if>
+          <ul data-reveal="" style="margin: 0; padding: 0; list-style: none; border-radius: 8px; border: 1px solid oklch(0.9 0.008 252); background: #fff; overflow: hidden;">
+            <sc-for list="{{ group.items }}" as="r" hint-placeholder-count="2">
+              <li style="display: flex; flex-wrap: wrap; gap: 16px; padding: 24px; align-items: flex-start; justify-content: space-between; border-top: 1px solid oklch(0.9 0.008 252);">
+                <div style="min-width: 0; flex: 1 1 320px;">
+                  <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700;">{{ r.name }}</h3>
+                  <p style="margin: 4px 0 0; font-size: 14px; line-height: 1.6; color: oklch(0.505 0.014 256);">{{ r.address }}</p>
+                  <sc-if value="{{ r.hours }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin: 4px 0 0; font-size: 14px; line-height: 1.6; color: oklch(0.505 0.014 256);">{{ r.hours }}</p>
+                  </sc-if>
+                </div>
+                <div style="display: flex; flex-shrink: 0; flex-direction: column; align-items: flex-start; gap: 8px;">
+                  <span style="border-radius: 2px; background: oklch(0.93 0.032 233); padding: 4px 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.32 0.075 240);">Authorized</span>
+                  <sc-if value="{{ r.url }}" hint-placeholder-val="{{ false }}">
+                    <a href="{{ r.url }}" target="_blank" rel="noreferrer" style="display: inline-flex; height: 36px; align-items: center; border-radius: 6px; border: 1px solid oklch(0.9 0.008 252); padding: 0 16px; font-size: 14px; color: oklch(0.195 0.012 258);" style-hover="background: oklch(0.955 0.006 250)">Website</a>
+                  </sc-if>
+                </div>
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+      </sc-for>
+
+      <div data-reveal="" style="margin-top: 40px; border-radius: 8px; background: oklch(0.968 0.005 250); padding: 24px;">
+        <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700;">Why buy from an authorized retailer</h2>
+        <p style="margin: 8px 0 0; max-width: 672px; font-size: 14px; line-height: 1.7; color: oklch(0.505 0.014 256);">
+          Local warranty, safety mark approved adapters, and genuine parts. Unauthorized sellers may carry grey market stock with no warranty support.
+        </p>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,0.1); background: #000;">
+    <div data-pad="" style="margin: 0 auto; width: 100%; box-sizing: border-box; display: grid; max-width: 1152px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; padding: 48px 24px;">
+      <div>
+        <p style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #fff;">HINISO</p>
+        <p style="margin: 8px 0 0; max-width: 320px; font-size: 14px; color: rgba(255,255,255,0.6);">Premium dry cabinets. Japan technology since 2011.</p>
+      </div>
+      <div style="font-size: 14px;">
+        <p style="margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Explore</p>
+        <ul style="margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: rgba(255,255,255,0.7);">
+          <li><button type="button" onClick="{{ goAbout }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: inherit;" style-hover="color: oklch(0.83 0.165 92)">About</button></li>
+          
+          <li><button type="button" onClick="{{ goRetailers }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: inherit;" style-hover="color: oklch(0.83 0.165 92)">Retailers</button></li>
+        </ul>
+      </div>
+      <div style="font-size: 14px;">
+        <p style="margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Support</p>
+        <ul style="margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: rgba(255,255,255,0.7);">
+          <li><a href="https://www.hiniso.com.sg/s/HINISO-Models-Product-Catalogue-New.pdf" target="_blank" rel="noopener noreferrer" style="color: inherit;" style-hover="color: oklch(0.83 0.165 92)">Catalogue</a></li>
+          <li><a href="https://www.hiniso.com.sg/s/EN-HINISO.pdf" target="_blank" rel="noopener noreferrer" style="color: inherit;" style-hover="color: oklch(0.83 0.165 92)">User Guide</a></li>
+          <li><button type="button" onClick="{{ goContact }}" style="background: none; border: 0; padding: 0; font: inherit; cursor: pointer; color: inherit;" style-hover="color: oklch(0.83 0.165 92)">Contact</button></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1);">
+      <p data-pad="" style="margin: 0 auto; width: 100%; box-sizing: border-box; max-width: 1152px; padding: 20px 24px; font-size: 12px; color: rgba(255,255,255,0.5);">© 2026 Hiniso. Manufactured in Zhuhai, China. Corporate offices in Singapore.</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  static retailers = {
+    Singapore: [
+      { name: "Drybox.com.sg", address: "1092 Lower Delta Road #04-11, Singapore 169203", hours: "Appointments only · WhatsApp +65 8751 0408", url: "https://www.drybox.com.sg/" },
+      { name: "The Camera Workshop", address: "3 Coleman Street #01-06, Peninsula Excelsior, Singapore 179804", hours: "Mon to Sat, 11.30am to 7pm · +65 6336 1956", url: "https://www.thecameraworkshop.com.sg/" },
+    ],
+    Malaysia: [
+      { state: "Kuala Lumpur", name: "DryBox MY Sdn Bhd", address: "A1-6, 1st Floor, KL Industrial Park, 653, Batu 5, Jalan Kelang Lama, 58200 Kuala Lumpur", hours: "support@drybox.com.my · WhatsApp +60 18 328 8213", url: "https://drybox.com.my/" },
+      { state: "Kuala Lumpur", name: "Altech Camera", address: "Lot 06-39, Level 6, West Wing, Berjaya Times Square, 1, Jln Imbi, 55100 Kuala Lumpur" },
+      { state: "Kuala Lumpur", name: "YL Camera Services Sdn Bhd (HQ)", address: "Lot UD8, Upper Ground Floor, Pudu Plaza, Jalan Landak, off Jln Pudu, 55100 Kuala Lumpur", url: "https://www.ylcamera.com.my/" },
+      { state: "Kuala Lumpur", name: "QQ Camera", address: "V05-05-06, Signature 1, Lingkaran SV, 55100 Kuala Lumpur" },
+      { state: "Selangor", name: "KLDSLR", address: "61-4, Jalan SS 2/75, SS 2, 47300 Petaling Jaya, Selangor" },
+      { state: "Selangor", name: "Camera Valley Sdn Bhd", address: "B-10-1 Sunway Giza Mall, Jalan PJU 5/14, Kota Damansara, 47810 Petaling Jaya, Selangor" },
+      { state: "Selangor", name: "Foto SCM Sdn Bhd", address: "Lot Lvl 1-39, Lvl 1, Setia City Mall, No 7 Persiaran Setia Dagang, Bandar Setia Alam, Seksyen U13, 40170 Shah Alam, Selangor" },
+      { state: "Penang", name: "Sony Centre", address: "Queensbay Mall, 100, Persiaran Bayan Indah, 14300 Bayan Lepas, Penang" },
+      { state: "Penang", name: "Canon Image Square", address: "98, Jalan Burma, 10050 George Town, Pulau Pinang" },
+      { state: "Penang", name: "Foto Easycam (M) Sdn Bhd", address: "A1-08, GF, Komtar, Jln Penang, 10000 George Town, Penang" },
+      { state: "Perak", name: "SLR Centre | Sony", address: "No 1, Jln Foo Yet Kai, Kampung Jawa, 30300 Ipoh, Perak" },
+      { state: "Pahang", name: "Perniagaan Osaki", address: "G58, Ground Floor, Berjaya Megamall, 25000 Kuantan, Pahang" },
+      { state: "Malacca", name: "FT STUDIO DP", address: "No. BD-025, Lower Ground Floor, Dataran Pahlawan Megamall, Banda Hilir, 75000 Melaka" },
+      { state: "Malacca", name: "Memory Hut Sdn Bhd", address: "G24, Ground Floor, Mahkota Parade, Taman Costa Mahkota, 75000 Malacca" },
+      { state: "Johor", name: "Johan Photo Camtronics Sdn Bhd", address: "Plaza Angsana, L4-9, Skudai Hwy, Bandar Baru Uda, 81200 Johor Bahru, Johor" },
+    ],
+    Vietnam: [
+      { name: "Mayanhcu.vn", address: "18 Nguyen Thi Minh Khai, District 1, Ho Chi Minh City", hours: "Daily, 9am to 7pm · +84 28 3822 4455", url: "https://mayanhcu.vn/" },
+    ],
+    India: [
+      { name: "HINISO.IN", address: "Shop No.106, First Floor, RG City Centre-LR Block No-B LSC, Lawrence Road, New Delhi-110035", hours: "Daily Monday to Saturday, 11:00 AM – 6:00 PM", url: "https://hiniso.in" },
+    ],
+  };
+
+  state = { page: "home", country: "Singapore", pendingScroll: null, menuOpen: false, downloadsOpen: false, w: typeof window !== "undefined" ? window.innerWidth : 1200 };
+
+  componentDidMount() {
+    this.icons();
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener("resize", this._onResize);
+    this._onResize();
+    this.reveals();
+    this._rescan = () => {
+      if (this._pending) return;
+      this._pending = requestAnimationFrame(() => { this._pending = null; this.reveals(); });
+    };
+    this._onScroll = () => {
+      const h = document.querySelector("[data-header]");
+      if (h) h.classList.toggle("is-stuck", window.scrollY > 8);
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+    this._mo = new MutationObserver(this._rescan);
+    this._mo.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("scroll", this._rescan, { passive: true });
+    window.addEventListener("resize", this._rescan);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    if (this._rescan) {
+      window.removeEventListener("scroll", this._rescan);
+      window.removeEventListener("resize", this._rescan);
+    }
+    if (this._onScroll) window.removeEventListener("scroll", this._onScroll);
+    if (this._mo) this._mo.disconnect();
+    if (this._io) this._io.disconnect();
+  }
+
+  lowEnd() {
+    const nav = window.navigator || {};
+    return (nav.deviceMemory && nav.deviceMemory <= 2) || (nav.hardwareConcurrency && nav.hardwareConcurrency <= 2)
+      || window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      || !("IntersectionObserver" in window);
+  }
+
+  reveals() {
+    if (this.lowEnd()) {
+      document.documentElement.setAttribute("data-no-motion", "");
+      return;
+    }
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        const shown = entries.filter((e) => e.isIntersecting).map((e) => e.target);
+        // left-to-right stagger within each row of a grid/flex group
+        const byParent = new Map();
+        for (const el of shown) {
+          const r = el.getBoundingClientRect();
+          if (!byParent.has(el.parentElement)) byParent.set(el.parentElement, new Map());
+          const rows = byParent.get(el.parentElement);
+          const key = Math.round(r.top / 24);
+          if (!rows.has(key)) rows.set(key, []);
+          rows.get(key).push([el, r.left]);
+        }
+        const groups = [];
+        for (const rows of byParent.values()) for (const g of rows.values()) groups.push(g);
+        for (const group of groups) {
+          group.sort((a, b) => a[1] - b[1]);
+          group.forEach(([el], i) => {
+            el.style.transitionDelay = Math.min(i, 5) * 240 + "ms";
+            el.classList.add("is-in");
+            this._io.unobserve(el);
+          });
+        }
+      }, { rootMargin: "0px 0px -10% 0px", threshold: 0 });
+    }
+    const vh = window.innerHeight;
+    document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => {
+      this._io.observe(el);
+      if (el.getBoundingClientRect().top < vh * 0.9) el.classList.add("is-in"); // fail-open
+    });
+    clearTimeout(this._failOpen);
+    this._failOpen = setTimeout(() => {
+      const h = window.innerHeight;
+      document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => {
+        if (el.getBoundingClientRect().top < h) el.classList.add("is-in");
+      });
+    }, 1500);
+  }
+  componentDidUpdate() {
+    this.icons();
+    this.reveals();
+  }
+
+  scrollToContact() {
+    const el = document.getElementById("contact");
+    if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: reduce ? "auto" : "smooth" });
+  }
+  icons() {
+    const run = () => window.lucide && window.lucide.createIcons();
+    run();
+    setTimeout(run, 300);
+    setTimeout(run, 1200);
+  }
+
+  renderVals() {
+    const accent = this.props.accent ?? "oklch(0.83 0.165 92)";
+    const w = this.state.w;
+    const page = this.state.page;
+    const go = (p) => () => { this.setState({ page: p, downloadsOpen: false, menuOpen: false }); window.scrollTo(0, 0); };
+    const countries = ["Singapore", "Malaysia", "Vietnam", "India"];
+    const list = Component.retailers[this.state.country] || [];
+    const states = [...new Set(list.map((r) => r.state).filter(Boolean))];
+    const groups = states.length
+      ? states.map((s) => ({ label: s, items: list.filter((r) => r.state === s) }))
+      : [{ label: "", items: list }];
+    return {
+      accent,
+      isHome: page === "home",
+      isAbout: page === "about",
+      isRetailers: page === "retailers",
+      goHome: go("home"),
+      goAbout: go("about"),
+      goRetailers: go("retailers"),
+      shopSingapore: () => { this.setState({ page: "retailers", country: "Singapore", menuOpen: false, downloadsOpen: false }); window.scrollTo(0, 0); },
+      shopMalaysia: () => { this.setState({ page: "retailers", country: "Malaysia", menuOpen: false, downloadsOpen: false }); window.scrollTo(0, 0); },
+      menuOpen: this.state.menuOpen,
+      menuClosed: !this.state.menuOpen,
+      chevOpen: this.state.downloadsOpen ? "" : null,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      goContact: () => {
+        if (this.state.page === "home") {
+          this.setState({ downloadsOpen: false, menuOpen: false });
+          this.scrollToContact();
+        } else {
+          this.setState({ page: "home", downloadsOpen: false, menuOpen: false });
+          const deadline = performance.now() + 2000;
+          let scrolled = false;
+          const tick = () => {
+            const el = document.getElementById("contact");
+            if (el && !scrolled) { scrolled = true; this.scrollToContact(); }
+            if (performance.now() < deadline) requestAnimationFrame(tick);
+            else if (el) this.scrollToContact(); // final correction after layout settles
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      aboutColor: page === "about" ? "oklch(0.83 0.165 92)" : "#fff",
+      retailersColor: page === "retailers" ? "oklch(0.83 0.165 92)" : "#fff",
+      aboutCols: w >= 768 ? "1.4fr 1fr" : "minmax(0, 1fr)",
+      groups,
+      countryTabs: countries.map((c) => ({
+        label: c,
+        onClick: () => this.setState({ country: c }),
+        bg: this.state.country === c ? "oklch(0.14 0.01 260)" : "transparent",
+        color: this.state.country === c ? "oklch(0.97 0.004 250)" : "oklch(0.505 0.014 256)",
+        border: this.state.country === c ? "oklch(0.14 0.01 260)" : "oklch(0.9 0.008 252)",
+      })),
+      featureCols: w >= 1024 ? "repeat(4, minmax(0, 1fr))" : w >= 640 ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)",
+      distCols: w >= 1024 ? "minmax(0, 1fr) minmax(0, 2fr)" : "minmax(0, 1fr)",
+      downloadsOpen: this.state.downloadsOpen,
+      openDownloads: () => { clearTimeout(this._t); this.setState({ downloadsOpen: true }); },
+      closeDownloads: () => { this._t = setTimeout(() => this.setState({ downloadsOpen: false }), 150); },
+      guarantees: ["On-site service", "Original parts", "Safety-standard adapters"],
+      features: [
+        { icon: "snowflake", kicker: "System", title: "Thermo-electric tech", detail: "HINISO's Thermo-electric Desiccant Technology prevents microscopic fungi and corrosive damage stemming from excess environmental humidity, without the use of noisy compressors. It's quick, heatless and provides full protection for your moisture sensitive gear." },
+        { icon: "battery-low", kicker: "Power", title: "Low energy use", detail: "Dehumidification is achieved through the safe and silent operation with very low DC power consumption of less than 8, 15, or 20 watts. Suitable for worldwide usage." },
+        { icon: "gauge", kicker: "Control", title: "Fully automatic", detail: "Once programmed, the cabinet operates automatically, activating only when internal humidity exceeds the set level and resuming when the internal humidity goes over 2% RH than set value." },
+        { icon: "lightbulb", kicker: "Interface", title: "Easy control", detail: "A LED convenience light illuminates the cabinet and turns on or off easily. All components are also modular for easy disassembly." },
+      ],
+      submit: (e) => {
+        e.preventDefault();
+        const email = new FormData(e.currentTarget).get("email");
+        if (email) window.location.href = "mailto:tessa@drybox.com.sg?subject=Distributor%20Enquiry&body=" + encodeURIComponent("Hi Hiniso team,\n\nI am interested in becoming a distributor.\n\nEmail: " + email);
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
